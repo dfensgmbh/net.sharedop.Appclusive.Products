@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-using System;
+using biz.dfch.CS.Utilities.Testing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using net.sharedop.Appclusive.Products;
 
 namespace net.sharedop.Appclusive.Products.Tests
 {
@@ -26,7 +25,28 @@ namespace net.sharedop.Appclusive.Products.Tests
         [TestMethod]
         public void MethodInvocationWithStringValueSucceeds()
         {
-            //var sut = new CodeContractsVerification();
+            // Arrange
+            var sut = new CodeContractsVerification();
+
+            // Act
+            var result = sut.MethodWithContractRequires("arbitrary-string");
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        [ExpectContractFailure]
+        public void MethodInvocationWithStringValueThrowsContractEncryption()
+        {
+            // Arrange
+            var sut = new CodeContractsVerification();
+
+            // Act
+            sut.MethodWithContractRequires(null);
+
+            // Assert
+            Assert.Fail("CodeContracts not working");
         }
     }
 }
