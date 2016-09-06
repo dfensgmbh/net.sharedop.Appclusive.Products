@@ -21,7 +21,8 @@ using biz.dfch.CS.Appclusive.Public.Converters;
 
 namespace net.sharedop.Appclusive.Products.Example1.v001
 {
-    public partial class ExampleProduct : EntityBagBaseDto
+    [AppclusiveProduct("Example Product")]
+    public partial class ExampleProduct : EntityKindBaseDto
     {
         [EntityBag(Constants.ExampleProduct.Name)]
         [Description("The name of the product instance")]
@@ -50,5 +51,29 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
         [Required]
         [EmailAddress]
         public virtual string Owner { get; set; }
+
+        private abstract class Status : EntityKindStatusCollection
+        {
+            public static readonly EntityKindStatus Active;
+            public static readonly EntityKindStatus Inactive;
+        }
+
+        public override StateMachine GetStateMachine()
+        {
+            return new StateMachine
+            {
+                {() => Status.InitialState, typeof(Initialise), () => Status.Active}
+                ,
+                {() => Status.Active, typeof(Deactivate), () => Status.Inactive}
+                ,
+                {() => Status.Inactive, typeof(Deactivate), () => Status.Active}
+                ,
+                {() => Status.Inactive, typeof(SetPercentage), () => Status.Inactive}
+                ,
+                {() => Status.Inactive, typeof(Deactivate), () => Status.Decommissioned}
+                ,
+                {() => Status.Decommissioned, typeof(Finalise), () => Status.FinalState}
+            };
+        }
     }
 }
