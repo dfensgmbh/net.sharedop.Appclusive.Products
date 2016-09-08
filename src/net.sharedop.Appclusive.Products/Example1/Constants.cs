@@ -28,7 +28,7 @@ namespace net.sharedop.Appclusive.Products.Example1
     {
         public class ExampleProduct
         {
-            public const string ProductPrefix = "net.sharedop.Appclusive.Products.Example1.ExampleProduct";
+            public const string ProductPrefix = "net.sharedop.Appclusive.Products.Example1.ExampleProduct.";
 
             public const string Name = ProductPrefix + "Name";
             public const string Description = ProductPrefix + "Description";
@@ -39,5 +39,6 @@ namespace net.sharedop.Appclusive.Products.Example1
             public const string Id = ProductPrefix + "Id";
             public const string Owner = ProductPrefix + "Owner";
         }
+
     }
 }

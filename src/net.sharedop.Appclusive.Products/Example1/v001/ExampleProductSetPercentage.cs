@@ -26,9 +26,10 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
         public class SetPercentage : EntityKindStateTransitionBaseDto
         {
             [EntityBag(Constants.ExampleProduct.Percentage)]
-            [Description("A percentage you can configure for this product instance")]
             [Range(Constants.ExampleProduct.PercentageMin, Constants.ExampleProduct.PercentageMax)]
             [DefaultValue(Constants.ExampleProduct.PercentageDefault)]
+            [Unit("dB")]
+            [IpAddress]
             public virtual double Percentage { get; set; }
         }
     }

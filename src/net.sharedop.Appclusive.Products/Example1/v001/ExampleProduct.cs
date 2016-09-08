@@ -22,6 +22,7 @@ using biz.dfch.CS.Appclusive.Public.Converters;
 namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     [AppclusiveProduct("Example Product")]
+    [Icon("windows")]
     public partial class ExampleProduct : EntityKindBaseDto
     {
         [EntityBag(Constants.ExampleProduct.Name)]
@@ -52,6 +53,12 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
         [EmailAddress]
         public virtual string Owner { get; set; }
 
+        [EntityBag("net.sharedop.cms.tralaa.something")]
+        [Description("Mail address of the owner of this product instance")]
+        [Required]
+        [Increment(0.652)]
+        public virtual double MagicNumber { get; set; }
+
         private abstract class Status : EntityKindStatusCollection
         {
             public static readonly EntityKindStatus Active;
@@ -66,7 +73,7 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
                 ,
                 {() => Status.Active, typeof(Deactivate), () => Status.Inactive}
                 ,
-                {() => Status.Inactive, typeof(Deactivate), () => Status.Active}
+                {() => Status.Inactive, typeof(Activate), () => Status.Active}
                 ,
                 {() => Status.Inactive, typeof(SetPercentage), () => Status.Inactive}
                 ,
