@@ -26,9 +26,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="it\" />
+    <Folder Include="src\" />
+    <Folder Include="src\net.sharedop.Appclusive.Products.Srg.v001.Solution\" />
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="ExampleProductSetPercentage.ps1" />
+    <Compile Include="src\net.sharedop.Appclusive.Products.Srg.v001.Solution\Initialise.ps1" />
+    <Compile Include="src\net.sharedop.Appclusive.Products.Srg.v001.Solution\CheckInCmdbIfSolutionExists.ps1" />
+    <Compile Include="src\net.sharedop.Appclusive.Products.Srg.v001.Solution\CheckInCmdbIfSolutionExists.Tests.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />

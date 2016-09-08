@@ -23,6 +23,7 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     [AppclusiveProduct("Example Product")]
     [Icon("windows")]
+    [Description("InternalWorkflow")]
     public partial class ExampleProduct : EntityKindBaseDto
     {
         [EntityBag(Constants.ExampleProduct.Name)]

@@ -33,6 +33,8 @@ namespace net.sharedop.Appclusive.Products.Srg
             public const string AbbreviationPattern = "[A-Z0-9]+";
             public const int AbbreviationMin = 4;
             public const int AbbreviationMax = 4;
+
+            public const string CmdbId = ProductPrefix + "CmdbId";
         }
     }
 }

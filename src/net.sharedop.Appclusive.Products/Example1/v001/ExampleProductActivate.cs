@@ -23,6 +23,7 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     public partial class ExampleProduct
     {
+        [Description("ExternalWorkflow")]
         public class Activate : EntityKindStateTransitionBaseDto
         {
             // no properties

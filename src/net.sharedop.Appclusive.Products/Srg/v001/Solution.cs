@@ -24,6 +24,10 @@ namespace net.sharedop.Appclusive.Products.Srg.v001
         [StringLength(Constants.Solution.AbbreviationMax, MinimumLength = Constants.Solution.AbbreviationMin)]
         public virtual string Abbreviation { get; set; }
 
+        [EntityBag(Constants.Solution.CmdbId)]
+        [Description("Optional description of the product instance")]
+        public virtual string InternalId { get; set; }
+
         private abstract class Status : EntityKindStatusCollection
         {
             public static readonly EntityKindStatus Created;

@@ -55,7 +55,24 @@ PROCESS
 	#
 	#
 
-	$fReturn = $true;
+	$entityBags = Get-ApcEntityBag -NodeId $Node.Id;
+	
+	# convert entity bags
+	$solution = New-Object net.sharedop.Appclusive.Products.Srg.v001.Solution
+
+	.\CheckInCmdbIfSolutionExists.ps1 -Solution $solution;
+	.\CreateSolutionInCmdb.ps1 -AllParamters
+	.\step3.ps1 -AllParamters
+
+	$jobResult = New-Object biz.dfch.CS.Appclusive.Public.JobResult
+	$jobResult.Succeeded = $true;
+	#$jobResult.IsValid()
+	#$jobResult.GetErrorMessages()
+	$jobResult.Message = "Solution with id 42 has been created."
+
+	Contract-Assert ($jobResult.IsValid());
+
+	return $jobResult;
 }
 
 END 
