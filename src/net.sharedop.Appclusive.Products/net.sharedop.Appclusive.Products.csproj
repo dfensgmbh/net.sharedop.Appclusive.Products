@@ -112,6 +112,7 @@
     <Compile Include="Srg\v001\Solution.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Example1\v001\UI\SetPercentage.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
