@@ -2,7 +2,6 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using biz.dfch.CS.Appclusive.Public.Configuration;
 using biz.dfch.CS.Appclusive.Public.Converters;
-using net.sharedop.Appclusive.Products.Example1;
 
 namespace net.sharedop.Appclusive.Products.Srg.v001
 {

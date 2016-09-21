@@ -14,10 +14,7 @@
  * limitations under the License.
  */
 
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using biz.dfch.CS.Appclusive.Public.Configuration;
-using biz.dfch.CS.Appclusive.Public.Converters;
 
 namespace net.sharedop.Appclusive.Products.Example1.v001
 {
