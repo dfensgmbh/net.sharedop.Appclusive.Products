@@ -17,13 +17,19 @@
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using biz.dfch.CS.Appclusive.Public.Configuration;
+using Configuration = biz.dfch.CS.Appclusive.Public.Constants.Configuration;
 using biz.dfch.CS.Appclusive.Public.Converters;
 
 namespace net.sharedop.Appclusive.Products.Example1.v001
 {
+    // this annotation indicates that this is also a product (and not only an EntityKind)
     [AppclusiveProduct("Example Product")]
+    // specifies the icon to use for visualing the EntityKind
     [Icon("windows")]
+    // this description will be applied to EntityKind.Description
     [Description("InternalWorkflow")]
+    // uses Python as the default implementation for the product logic
+    [ExecutionType(Configuration.ExecutionType.ExecutionTypeEnum.Python)]
     public partial class ExampleProduct : EntityKindBaseDto
     {
         [EntityBag(Constants.ExampleProduct.Name)]
@@ -54,9 +60,12 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
         [EmailAddress]
         public virtual string Owner { get; set; }
 
-        [EntityBag("net.sharedop.cms.tralaa.something")]
+        // here we reference an EntityBag of a foreign product
+        [EntityBag("net.sharedop.cms.tralala.SomeParameter")]
         [Description("Mail address of the owner of this product instance")]
+        [Range(0, 42)]
         [Required]
+        // this annotatoin requires that the value of this property may only have increments of 0.652
         [Increment(0.652)]
         public virtual double MagicNumber { get; set; }
 

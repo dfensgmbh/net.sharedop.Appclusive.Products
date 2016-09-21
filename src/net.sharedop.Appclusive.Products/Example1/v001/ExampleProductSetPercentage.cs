@@ -23,13 +23,15 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     public partial class ExampleProduct
     {
+        // this state transition is defined via schema form and uses the default naming convention, 
+        // which is: ExampleProductSetPercentage
+        [UserInterface(biz.dfch.CS.Appclusive.Public.Constants.Configuration.UserInterface.UserInterfaceTypeEnum.AngularSchemaForm)]
         public class SetPercentage : EntityKindStateTransitionBaseDto
         {
             [EntityBag(Constants.ExampleProduct.Percentage)]
             [Range(Constants.ExampleProduct.PercentageMin, Constants.ExampleProduct.PercentageMax)]
             [DefaultValue(Constants.ExampleProduct.PercentageDefault)]
-            [Unit("dB")]
-            [IpAddress]
+            [Unit("%")]
             public virtual double Percentage { get; set; }
         }
     }

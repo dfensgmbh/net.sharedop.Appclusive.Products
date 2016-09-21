@@ -22,12 +22,9 @@ namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     public partial class ExampleProduct
     {
-        // this transition uses SchemaForm and uses the default naming convention for that artifact
-        [UserInterface(Configuration.UserInterface.UserInterfaceTypeEnum.AngularSchemaForm)]
-        // this transition uses PowerShell as the product logic implementation and uses the default naming convention for that artifact
-        [ExecutionType(Configuration.ExecutionType.ExecutionTypeEnum.PowerShell)]
-        [Description("ExternalWorkflow")]
-        public class Activate : EntityKindStateTransitionBaseDto
+        // no definition for ExecutionType is defined here, we therefore use the 
+        // annotation from the outer class
+        public new class Initialise : EntityKindStateTransitionBaseDto
         {
             // no properties
         }

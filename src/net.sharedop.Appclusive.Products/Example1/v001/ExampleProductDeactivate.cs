@@ -15,11 +15,16 @@
  */
 
 using biz.dfch.CS.Appclusive.Public.Configuration;
+using Configuration  = biz.dfch.CS.Appclusive.Public.Constants.Configuration; 
 
 namespace net.sharedop.Appclusive.Products.Example1.v001
 {
     public partial class ExampleProduct
     {
+        // this transition uses SchemaForm and uses a special name for that artifact
+        [UserInterface(Configuration.UserInterface.UserInterfaceTypeEnum.AngularSchemaForm, "ExampleProductEmptySchema")]
+        // this transition uses Activiti as the product logic implementation and uses a special name for that artifact
+        [ExecutionType(Configuration.ExecutionType.ExecutionTypeEnum.Activiti, "ExampleProductDeactivateWorkflow")]
         public class Deactivate : EntityKindStateTransitionBaseDto
         {
             // no properties
