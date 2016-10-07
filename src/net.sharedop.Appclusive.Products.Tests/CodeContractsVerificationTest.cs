@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-using biz.dfch.CS.Utilities.Testing;
+using biz.dfch.CS.Testing.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace net.sharedop.Appclusive.Products.Tests
