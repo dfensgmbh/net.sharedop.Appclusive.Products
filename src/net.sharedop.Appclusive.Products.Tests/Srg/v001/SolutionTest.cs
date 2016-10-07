@@ -47,9 +47,11 @@ namespace net.sharedop.Appclusive.Products.Tests.Srg.v001
         [TestMethod]
         public void DefaultInstantiationValidationSucceeds()
         {
-            var sut = new Solution();
-            sut.Name = "abcd";
-            sut.Abbreviation = "ABCD";
+            var sut = new Solution
+            {
+                Name = "abcd",
+                Abbreviation = "ABCD"
+            };
 
             var result = sut.IsValid();
             var errorMessages = sut.GetErrorMessages();
